@@ -1,0 +1,79 @@
+.meta-info, .asset-info {
+  font-size: 1.2rem;
+}
+
+.instructions {
+  font-size: 1.1rem;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem 0.5rem;
+}
+
+.asset-wrapper {
+  margin: 0.5rem 0.5rem;
+  padding: 1rem 1rem;
+  background-color: rgb(248, 248, 248);
+  border-radius: 4px;
+  border: 2px solid rgb(240, 240, 240);
+  word-break: break-all;
+}
+
+.same-line {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.opensea-logo {
+  width: 1.15rem;
+  height: auto;
+  margin-right: 0.2rem;
+}
+
+.opensea-link {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
+.preview-img {
+  object-fit: cover;
+  max-width: 6rem;
+  max-height: 6rem;
+  margin-bottom: 0.5rem;
+}
+
+.asset-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.order-info {
+  font-size: 1.3rem;
+}
+
+
+.meta-info {
+  font-size: 1.3rem;
+  font-weight: bolder;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.approve-btn {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+
+.cancel-holder {
+  padding: 0.5rem 0.5rem;
+}
+.cancel-link {
+  cursor: pointer;
+  font-weight: bolder;
+  color: teal;
+}
+.cancel-link:hover {
+  color: rgb(4, 82, 82);
+}

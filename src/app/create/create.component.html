@@ -1,0 +1,137 @@
+<div class="container">
+
+  <div class="centered-header"><h1>Create Swap</h1></div>
+
+  <div class="instructions">
+    <div class="sub-header">Instructions</div>
+    <ol>
+      <li>Add details for the assets you have on the Have side.</li>
+      <li>Add details for the assets you want on the Want side. </li>
+      <li>Click Create Swap.</li>
+      <li>Sign the message that pops up.</li>
+      <li>Approve the contract to spend all your assets (if you haven't approved before).</li>
+      <li>Share the generated link with your trade partner.</li>
+    </ol>
+    <div class="cancel-holder">
+      <b>You can cancel all created swaps by clicking <span class="cancel-link" (click)="cancel()">here</span></b>
+    </div>
+  </div>
+
+  <div class="advanced-options">
+    <div class="">
+      <div>
+        <div class="input-labels" title="Only this address can accept your proposed swap.">Only For</div>
+        <div>(Leave empty if you want anyone to be able to fill)</div>
+        <input type="text" placeholder="0x..." [(ngModel)]="takerAddress">
+      </div>
+      <div>
+        <div class="input-labels" title="Date + time when this signed trade becomes invalid.">Expiration Date</div>
+        <div>(Leave empty if you want any time to be able to fill)</div>
+        <ng2-flatpickr [config]="flatpickrOptions" [(ngModel)]="expiryDateArray"></ng2-flatpickr>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="two-cols">
+
+    <div>
+      <h1 class="centered">Have</h1>
+
+      <div *ngFor="let h of haveAssetsList.controls; let i = index" class="asset-wrapper" [formGroup]="h" class="asset-wrapper">
+        <div class="same-line">
+          <div class="preview-img">
+            <img src="{{haveImageList[i]}}" class="preview-img">
+          </div>
+          <div *ngIf="haveAssetHasId(i)" class="opensea-link">
+            <img class="opensea-logo" src="../assets/opensea-logo.svg">
+            <a href="{{formatOpenSeaLinkForHave(i)}}" target="_blank">View on OpenSea</a>
+          </div>
+        </div>
+        <div class="same-line">
+          <div>
+            <div class="input-labels">Asset Type</div>
+            <select formControlName="type">
+              <option selected="selected" value="1">ERC20</option>
+              <option value="2">ERC721</option>
+              <option value="3">ERC1155</option>
+            </select>
+          </div>
+          <div>
+            <div class="input-labels">Asset Address</div>
+            <input type="text" formControlName="address" placeholder="Asset address (0x...)">
+          </div>
+        </div>
+        <div class="same-line"></div>
+        <div *ngIf="haveAssetHasId(i)">
+          <div class="input-labels">ID</div>
+          <input type="text" formControlName="id" (change)="getHaveImage(i)">
+        </div>
+        <div *ngIf="haveAssetHasAmount(i)">
+          <div class="input-labels">Amount</div>
+          <input type="text" formControlName="amount" (change)="getHaveImage(i)">
+        </div>
+        <button (click)="deleteHaveAsset(i)" class="delete-btn">✖️ Delete Asset</button>
+      </div>
+
+      <div class="centered">
+        <button (click)="addToHaveAssetsList()" class="add-btn">➕ Add Asset</button>
+      </div>
+    </div>
+
+    <div>
+      <h1 class="centered">Want</h1>
+      <div *ngFor="let w of wantAssetsList.controls; let i = index" class="asset-wrapper" [formGroup]="w" class="asset-wrapper">
+        <div class="same-line">
+          <img src="{{wantImageList[i]}}" class="preview-img">
+          <div *ngIf="wantAssetHasId(i)" class="opensea-link">
+            <img class="opensea-logo" src="../assets/opensea-logo.svg">
+            <a href="{{formatOpenSeaLinkForWant(i)}}" target="_blank">View on OpenSea</a>
+          </div>
+        </div>
+
+        <div class="same-line">
+          <div>
+            <div class="input-labels">Asset Type</div>
+            <select formControlName="type">
+              <option selected="selected" value="1">ERC20</option>
+              <option value="2">ERC721</option>
+              <option value="3">ERC1155</option>
+            </select>
+          </div>
+          <div>
+            <div class="input-labels">Asset Address</div>
+            <input type="text" formControlName="address" placeholder="Asset address (0x...)">
+          </div>
+        </div>
+        <div *ngIf="wantAssetHasId(i)">
+          <div class="input-labels">ID</div>
+          <input type="text" formControlName="id" (change)="getWantImage(i)">
+        </div>
+        <div *ngIf="wantAssetHasAmount(i)">
+          <div class="input-labels">Amount</div>
+          <input type="text" formControlName="amount" (change)="getWantImage(i)">
+        </div>
+        <button (click)="deleteWantAsset(i)" class="delete-btn">✖️ Delete Asset</button>
+      </div>
+      <div class="centered">
+        <button (click)="addToWantAssetsList()" class="add-btn">➕ Add Asset</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="centered">
+    <button (click)="generateSignature()" class="blue-btn">🔄 Create Swap</button>
+  </div>
+
+  <div class="trade-link">
+    <div class="sub-header centered">Your trade link is:</div>
+    <div class="" (click)="copy()">{{tradeURL}}</div>
+    <div class="centered">
+      <button (click)="copy()" class="copy-btn">📝 Copy</button>
+    </div>
+  </div>
+
+</div>

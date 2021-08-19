@@ -1,0 +1,89 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+
+/* Move the max-width, margin, and padding that water.css applied from the body to the .inner-body */
+/* because flatpickr uses the body width in determining its position */
+body {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+.inner-body {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 10px;
+}
+
+.centered {
+  text-align: center;
+}
+
+.centered-header {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.container {
+  margin: auto;
+  max-width: 80rem;
+  overflow-wrap: break-word;
+}
+
+.header {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-bottom: 2rem;
+}
+
+.sub-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.blue-btn {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  background-color: teal;
+  color: white;
+  border: none;
+  font-weight: bolder;
+}
+
+.blue-btn:hover {
+  background-color: rgb(9, 75, 75);
+}
+
+/* Keep scaled pixels by default for images*/
+img {
+  image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+  image-rendering: -moz-crisp-edges;          /* Firefox                        */
+  image-rendering: -o-crisp-edges;            /* Opera                          */
+  image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+  image-rendering: pixelated;                 /* CSS3 */
+  -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+}
+
+.two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.two-cols > div {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 40rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .two-cols {
+    display: block;
+  }
+}

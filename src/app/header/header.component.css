@@ -1,0 +1,22 @@
+.logo {
+  height: 3rem;
+  width: auto;
+}
+
+.wallet-holder {
+  /* padding: 1rem 1rem; */
+  margin-left: auto; 
+  margin-right: 0;
+  display: flex;
+  align-items: center;
+  text-align: end;
+}
+
+.wallet-btn {
+  border: 2px solid rgb(163, 163, 163);
+  padding: 0.5rem 0.5rem;
+}
+
+.spacer {
+  width: 70%;
+}

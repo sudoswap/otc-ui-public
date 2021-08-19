@@ -1,0 +1,12 @@
+<div class="wallet-holder">
+  <span><a routerLink="/"><img class="logo" src="./assets/sudoswap-logo.png"></a></span>
+  <div class="spacer"></div>
+  <button type="button" class="wallet-btn" (click)="connectWallet()">
+    <div *ngIf="wallet.connected">
+      {{wallet.userAddress.substring(0, 14)}}
+    </div>
+    <div *ngIf="!wallet.connected">
+      Connect Wallet
+    </div>
+  </button>
+</div>

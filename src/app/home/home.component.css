@@ -1,0 +1,63 @@
+.title {
+  font-size: 5rem;
+  font-weight: bolder;
+}
+
+.info {
+  margin-top: 1rem;
+}
+
+.blurb {
+  font-size: 1.5rem;
+}
+
+.blurb > ul > li {
+  padding: 0.25rem 0.25rem;
+  list-style: none;
+}
+
+.benefits {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.asset {
+  font-size: 1.75rem;
+  font-weight: bolder;
+  padding: 0.1rem 0.1rem;
+}
+
+.swap-holder {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.asset-holder {
+  width: 25rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.asset-img {
+  height: 8rem;
+  width: auto;
+  border-radius: 16px;
+  padding: 0.5rem 0.5rem;
+}
+
+.swap-btn {
+  margin-top: 2rem;
+}
+
+.credits {
+  margin-top: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .title {
+    font-size: 3rem;
+  }
+}

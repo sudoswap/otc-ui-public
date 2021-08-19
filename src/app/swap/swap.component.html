@@ -1,0 +1,70 @@
+<div class="centered-header"><h1>Accept Swap</h1></div>
+
+<div class="instructions">
+  <div class="sub-header">Instructions</div>
+  <ol>
+    <li>Click Accept Swap.</li>
+    <li>Approve the spending for the Swapping assets (if you haven't already).</li>
+    <li>Approve the transaction to swap your assets.</li>
+  </ol>
+  <div class="centered cancel-holder">
+    If you're the creator of this swap, you can cancel it by clicking <span class="cancel-link" (click)="cancelOrder()">here</span>.
+  </div>
+</div>
+
+<hr>
+
+<div class="two-cols">
+
+  <div>
+    <h1 class="centered">Swapping</h1>
+    <div *ngFor="let a of asset1Data" class="asset-wrapper">
+      <div class="same-line">
+        <img class="preview-img" src="{{a.imgURL}}">
+        <div *ngIf="a.id" class="opensea-link">
+          <img class="opensea-logo" src="../assets/opensea-logo.svg">
+          <a href="{{constants.OPENSEA_LINK}}{{a.address}}/{{a.id}}" target="_blank">View on OpenSea</a>
+        </div>
+      </div>
+      <div class="asset-name">{{a.name}}</div>
+      <div><a href="https://etherscan.io/token/{{a.address}}" target="_blank">{{a.address}}</a></div>
+      <div>{{a.id}}</div>
+      <div>Amount: {{a.amount.toFormat(8)}} {{a.symbol}}</div>
+    </div>
+  </div>
+
+  <div>
+    <h1 class="centered">For</h1>
+    <div *ngFor="let a of asset2Data" class="asset-wrapper">
+      <div class="same-line">
+        <img class="preview-img" src="{{a.imgURL}}">
+        <div *ngIf="a.id" class="opensea-link">
+          <img class="opensea-logo" src="../assets/opensea-logo.svg">
+          <a href="{{constants.OPENSEA_LINK}}{{a.address}}/{{a.id}}" target="_blank">View on OpenSea</a>
+        </div>
+      </div>
+      <div class="asset-name">{{a.name}}</div>
+      <div><a href="https://etherscan.io/token/{{a.address}}" target="_blank">{{a.address}}</a></div>
+      <div>{{a.id}}</div>
+      <div>Amount: {{a.amount.toFormat(8)}} {{a.symbol}}</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="centered order-info" *ngIf="!isFilled">
+  <div class="expiration-info" *ngIf="!hasDefaultExpiryDate">Expires on: <b>{{expiryDate}}</b></div>
+  <div>Fillable by: <b>{{takerAddress}}</b></div>
+</div>
+
+<div class="centered meta-info" *ngIf="isFilled">
+  This order has already been filled!
+</div>
+
+<div class="centered meta-info" *ngIf="isCanceled">
+  This order has been cancelled!
+</div>
+
+<div class="centered" *ngIf="!isFilled && !isCanceled">
+  <button class="blue-btn" (click)="acceptSwap()">🔄 Accept Swap</button>
+</div>
