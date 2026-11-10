@@ -11,3 +11,5 @@ Getting this to build can be tricky.
 5. This commit [here](https://github.com/ethfinex/efx-api-node/blob/50b169aa094b73a869dd9a830e281fdda5345296/src/api/sign/order.js) helps explain how to set up the 0x libraries. 
 6. Add your own blocknative API key and Infura API key in `web3Enabled.js`
 7. `ng serve` should spin up a local instance
+
+<!-- diagnostic build marker -->
